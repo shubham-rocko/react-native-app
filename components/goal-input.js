@@ -14,7 +14,7 @@ const GoalInput = (props) => {
             placeholder="Course Goal" 
             style={styles.input}
             onChangeText={goalInputHandler}
-            value={enteredGoal}
+            value={`${enteredGoal}`}
             />
             <Button title="ADD" onPress={props.addGoalHandler.bind(this, enteredGoal)}/>
         </View>)
