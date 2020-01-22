@@ -12,7 +12,7 @@ export default function App() {
   const addGoalHandler = (enteredGoal) => {
     setCourseGoals(courseGoals => [
       ...courseGoals, 
-      {id: Math.random(), value: `${enteredGoal}`}]
+      {id: Math.random().toString(), value: enteredGoal}]
       );
       setIsAddMode(false);
   }
@@ -34,8 +34,10 @@ export default function App() {
       <FlatList 
       keyExtractor={(item, index) => item.id}
       data={courseGoals}
-      renderItem={itemData => <GoalItem onDelete={removeGoalHandler.bind(this, itemData.item.id)}
-      title={itemData.item.value}/>}/>
+      renderItem={itemData => {
+        return <GoalItem onDelete={removeGoalHandler.bind(this, itemData.item.id)} title={itemData.item.value}/>
+      }}
+      />
     </View>
   );
 }
